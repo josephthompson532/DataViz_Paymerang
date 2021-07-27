@@ -1,4 +1,4 @@
-let mylist = [
+[
     {
         "payment": {
             "vendor": {
@@ -160,28 +160,3 @@ let mylist = [
         }
     }
 ]
-
-mylist.forEach((dataObject) => {
-    var total = 0;
-    var remittances = dataObject.payment.remittance;
-    if (Array.isArray(remittances)) {
-        remittances.forEach((innerObject) => {
-            total = total + innerObject.amount;
-        })
-    } else {
-        total = total + remittances.amount
-    }
-    dataObject.payment.total_amount = Math.round(total * 100, 2) / 100;
-    console.log(dataObject.payment.total_amount)
-})
-
-var seriesData = []
-var vendorNames = []
-
-mylist.forEach((dataObject => {
-    var mydict = {}
-    mydict["sales"] = dataObject.payment.total_amount
-    vendorNames.push(dataObject.payment.vendor.name)
-    seriesData.push(mydict)
-}))
-
