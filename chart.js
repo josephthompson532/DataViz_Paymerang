@@ -31,11 +31,19 @@ d3.json("data.json").then(myjson => {
             data: seriesData
         },
         series: [{
-            field: "sales"
+            labels: {
+                visible: true,
+                format: "{0:C}"
+            },
+            field: "sales",
+            color: "maroon"
         }],
         valueAxis: [{
             labels: {
                 format: "{0:C}"
+            },
+            minorGridLines: {
+                visible: false
             }
         }],
         categoryAxis: [{
